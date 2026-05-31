@@ -185,7 +185,7 @@ var _ = /android/gi.test(h), v = function(e) {
 	}
 }(typeof window > "u" ? null : window);
 //#endregion
-//#region \0@oxc-project+runtime@0.124.0/helpers/typeof.js
+//#region \0@oxc-project+runtime@0.132.0/helpers/typeof.js
 function y(e) {
 	"@babel/helpers - typeof";
 	return y = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(e) {
@@ -195,7 +195,7 @@ function y(e) {
 	}, y(e);
 }
 //#endregion
-//#region \0@oxc-project+runtime@0.124.0/helpers/toPrimitive.js
+//#region \0@oxc-project+runtime@0.132.0/helpers/toPrimitive.js
 function b(e, t) {
 	if (y(e) != "object" || !e) return e;
 	var n = e[Symbol.toPrimitive];
@@ -207,13 +207,13 @@ function b(e, t) {
 	return (t === "string" ? String : Number)(e);
 }
 //#endregion
-//#region \0@oxc-project+runtime@0.124.0/helpers/toPropertyKey.js
+//#region \0@oxc-project+runtime@0.132.0/helpers/toPropertyKey.js
 function x(e) {
 	var t = b(e, "string");
 	return y(t) == "symbol" ? t : t + "";
 }
 //#endregion
-//#region \0@oxc-project+runtime@0.124.0/helpers/defineProperty.js
+//#region \0@oxc-project+runtime@0.132.0/helpers/defineProperty.js
 function S(e, t, n) {
 	return (t = x(t)) in e ? Object.defineProperty(e, t, {
 		value: n,
@@ -894,7 +894,9 @@ var ee = class {
 	}
 	syncPages() {
 		let e = this.Reveal.getConfig(), t = this.Reveal.getComputedSlideSize(window.innerWidth, window.innerHeight), n = this.Reveal.getScale(), r = e.scrollLayout === "compact", i = this.viewportElement.offsetHeight, a = t.height * n, o = r ? a : i;
-		this.scrollTriggerHeight = r ? a : i, this.viewportElement.style.setProperty("--page-height", o + "px"), this.viewportElement.style.scrollSnapType = typeof e.scrollSnap == "string" ? `y ${e.scrollSnap}` : "", this.slideTriggers = [], this.pages = Array.from(this.Reveal.getRevealElement().querySelectorAll(".scroll-page")).map((n) => {
+		this.scrollTriggerHeight = r ? a : i, this.viewportElement.style.setProperty("--page-height", o + "px"), this.viewportElement.style.scrollSnapType = typeof e.scrollSnap == "string" ? `y ${e.scrollSnap}` : "", this.slideTriggers = [];
+		let s = Array.from(this.Reveal.getRevealElement().querySelectorAll(".scroll-page"));
+		this.pages = s.map((n) => {
 			let a = this.createPage({
 				pageElement: n,
 				slideElement: n.querySelector("section"),
@@ -975,8 +977,8 @@ var ee = class {
 	syncScrollPosition() {
 		let e = this.viewportElement.offsetHeight, t = e / this.viewportElement.scrollHeight, n = this.viewportElement.scrollTop, r = this.viewportElement.scrollHeight - e, i = Math.max(Math.min(n / r, 1), 0), a = Math.max(Math.min((n + e / 2) / this.viewportElement.scrollHeight, 1), 0), o, s = null;
 		this.slideTriggers.forEach((e) => {
-			let { page: n } = e;
-			i >= e.range[0] - t * 2 && i <= e.range[1] + t * 2 && !n.loaded ? (n.loaded = !0, this.Reveal.slideContent.load(n.slideElement)) : n.loaded && (n.loaded = !1, this.Reveal.slideContent.unload(n.slideElement)), i >= e.range[0] && i <= e.range[1] ? (this.activateTrigger(e), o = e.page) : e.active && this.deactivateTrigger(e);
+			let { page: n } = e, r = i >= e.range[0] - t * 2 && i <= e.range[1] + t * 2;
+			r && !n.loaded ? (n.loaded = !0, this.Reveal.slideContent.load(n.slideElement)) : !r && n.loaded && (n.loaded = !1, this.Reveal.slideContent.unload(n.slideElement)), i >= e.range[0] && i <= e.range[1] ? (this.activateTrigger(e), o = e.page) : e.active && this.deactivateTrigger(e);
 		}), o && o.scrollTriggers.forEach((e) => {
 			a >= e.range[0] && a <= e.range[1] ? (this.activateTrigger(e), s = e) : e.active && this.deactivateTrigger(e);
 		}), this.setProgressBarValue(n / (this.viewportElement.scrollHeight - e), o, s);
@@ -1059,7 +1061,7 @@ var ee = class {
 	}
 };
 //#endregion
-//#region \0@oxc-project+runtime@0.124.0/helpers/asyncToGenerator.js
+//#region \0@oxc-project+runtime@0.132.0/helpers/asyncToGenerator.js
 function M(e, t, n, r, i, a, o) {
 	try {
 		var s = e[a](o), c = s.value;
@@ -1441,7 +1443,7 @@ var le = class {
 	}
 };
 //#endregion
-//#region \0@oxc-project+runtime@0.124.0/helpers/objectSpread2.js
+//#region \0@oxc-project+runtime@0.132.0/helpers/objectSpread2.js
 function P(e, t) {
 	var n = Object.keys(e);
 	if (Object.getOwnPropertySymbols) {
@@ -1906,7 +1908,7 @@ var pe = class {
 	destroy() {
 		this.close();
 	}
-}, I = 40, be = class {
+}, I = 40, L = 1.03, be = class {
 	constructor(e) {
 		this.Reveal = e, this.touchStartX = 0, this.touchStartY = 0, this.touchStartCount = 0, this.touchCaptured = !1, this.activePointers = /* @__PURE__ */ new Map(), this.onPointerDown = this.onPointerDown.bind(this), this.onPointerMove = this.onPointerMove.bind(this), this.onPointerUp = this.onPointerUp.bind(this), this.onPointerCancel = this.onPointerCancel.bind(this), this.onTouchStart = this.onTouchStart.bind(this), this.onTouchMove = this.onTouchMove.bind(this), this.onTouchEnd = this.onTouchEnd.bind(this);
 	}
@@ -1926,6 +1928,11 @@ var pe = class {
 		}
 		return !1;
 	}
+	isViewportZoomed() {
+		if (!window.visualViewport || typeof window.visualViewport.scale != "number") return !1;
+		let e = window.visualViewport.scale;
+		return this.visualViewportBaseScale === void 0 ? this.visualViewportBaseScale = e : this.visualViewportBaseScale = Math.min(this.visualViewportBaseScale, e), e / this.visualViewportBaseScale > L;
+	}
 	onTouchStart(e) {
 		if (this.touchCaptured = !1, this.isSwipePrevented(e.target)) return !0;
 		this.touchStartX = e.touches[0].clientX, this.touchStartY = e.touches[0].clientY, this.touchStartCount = e.touches.length;
@@ -1939,7 +1946,7 @@ var pe = class {
 			let n = e.touches[0].clientX, r = e.touches[0].clientY;
 			if (e.touches.length === 1 && this.touchStartCount !== 2) {
 				let i = this.Reveal.availableRoutes({ includeFragments: !0 }), a = n - this.touchStartX, o = r - this.touchStartY;
-				a > I && Math.abs(a) > Math.abs(o) ? (this.touchCaptured = !0, t.navigationMode === "linear" ? t.rtl ? this.Reveal.next() : this.Reveal.prev() : this.Reveal.left()) : a < -I && Math.abs(a) > Math.abs(o) ? (this.touchCaptured = !0, t.navigationMode === "linear" ? t.rtl ? this.Reveal.prev() : this.Reveal.next() : this.Reveal.right()) : o > I && i.up ? (this.touchCaptured = !0, t.navigationMode === "linear" ? this.Reveal.prev() : this.Reveal.up()) : o < -I && i.down && (this.touchCaptured = !0, t.navigationMode === "linear" ? this.Reveal.next() : this.Reveal.down()), t.embedded ? (this.touchCaptured || this.Reveal.isVerticalSlide()) && e.preventDefault() : e.preventDefault();
+				a > I && Math.abs(a) > Math.abs(o) ? (this.touchCaptured = !0, t.navigationMode === "linear" ? t.rtl ? this.Reveal.next() : this.Reveal.prev() : this.Reveal.left()) : a < -40 && Math.abs(a) > Math.abs(o) ? (this.touchCaptured = !0, t.navigationMode === "linear" ? t.rtl ? this.Reveal.prev() : this.Reveal.next() : this.Reveal.right()) : o > I && i.up ? (this.touchCaptured = !0, t.navigationMode === "linear" ? this.Reveal.prev() : this.Reveal.up()) : o < -40 && i.down && (this.touchCaptured = !0, t.navigationMode === "linear" ? this.Reveal.next() : this.Reveal.down()), t.embedded ? (this.touchCaptured || this.Reveal.isVerticalSlide()) && e.preventDefault() : e.preventDefault();
 			}
 		}
 	}
@@ -1964,7 +1971,7 @@ var pe = class {
 	onPointerCancel(e) {
 		e.pointerType === "touch" && (this.activePointers.delete(e.pointerId), e.touches = this.getActiveTouches(), this.onTouchEnd(e));
 	}
-}, L = "focus", R = "blur", xe = class {
+}, R = "focus", z = "blur", xe = class {
 	constructor(e) {
 		this.Reveal = e, this.onRevealPointerDown = this.onRevealPointerDown.bind(this), this.onDocumentPointerDown = this.onDocumentPointerDown.bind(this);
 	}
@@ -1978,13 +1985,13 @@ var pe = class {
 		this.Reveal.getRevealElement().removeEventListener("pointerdown", this.onRevealPointerDown, !1), document.removeEventListener("pointerdown", this.onDocumentPointerDown, !1);
 	}
 	focus() {
-		this.state !== L && (this.Reveal.getRevealElement().classList.add("focused"), document.addEventListener("pointerdown", this.onDocumentPointerDown, !1)), this.state = L;
+		this.state !== R && (this.Reveal.getRevealElement().classList.add("focused"), document.addEventListener("pointerdown", this.onDocumentPointerDown, !1)), this.state = R;
 	}
 	blur() {
-		this.state !== R && (this.Reveal.getRevealElement().classList.remove("focused"), document.removeEventListener("pointerdown", this.onDocumentPointerDown, !1)), this.state = R;
+		this.state !== z && (this.Reveal.getRevealElement().classList.remove("focused"), document.removeEventListener("pointerdown", this.onDocumentPointerDown, !1)), this.state = z;
 	}
 	isFocused() {
-		return this.state === L;
+		return this.state === R;
 	}
 	destroy() {
 		this.Reveal.getRevealElement().classList.remove("focused");
@@ -2146,7 +2153,7 @@ var pe = class {
 }, Te = "6.0.1";
 //#endregion
 //#region js/reveal.js
-function z(a, s) {
+function B(a, s) {
 	arguments.length < 2 && (s = arguments[0], a = document.querySelector(".reveal"));
 	let l = {}, f = {}, p = !1, m = !1, h, _, v, y, b = {
 		hasNavigatedHorizontally: !1,
@@ -2299,7 +2306,7 @@ function z(a, s) {
 			if (!f.disableLayout) {
 				g && !f.embedded && document.documentElement.style.setProperty("--vh", window.innerHeight * .01 + "px");
 				let n = L.isActive() ? Qe(e, t) : Qe(), r = S;
-				Xe(f.width, f.height), D.slides.style.width = n.width + "px", D.slides.style.height = n.height + "px", S = Math.min(n.presentationWidth / n.width, n.presentationHeight / n.height), S = Math.max(S, f.minScale), S = Math.min(S, f.maxScale), S === 1 || L.isActive() ? (D.slides.style.zoom = "", D.slides.style.left = "", D.slides.style.top = "", D.slides.style.bottom = "", D.slides.style.right = "", qe({ layout: "" })) : (D.slides.style.zoom = "", D.slides.style.left = "50%", D.slides.style.top = "50%", D.slides.style.bottom = "auto", D.slides.style.right = "auto", qe({ layout: "translate(-50%, -50%) scale(" + S + ")" }));
+				Xe(f.width, f.height), D.slides.style.width = n.width + "px", D.slides.style.height = n.height + "px", S = Math.min(n.presentationWidth / n.width, n.presentationHeight / n.height), S = Math.max(S, f.minScale), S = Math.min(S, f.maxScale), S = Math.round(S * 100) / 100, S === 1 || L.isActive() ? (D.slides.style.zoom = "", D.slides.style.left = "", D.slides.style.top = "", D.slides.style.bottom = "", D.slides.style.right = "", qe({ layout: "" })) : (D.slides.style.zoom = "", D.slides.style.left = "50%", D.slides.style.top = "50%", D.slides.style.bottom = "auto", D.slides.style.right = "auto", qe({ layout: "translate(-50%, -50%) scale(" + S + ")" }));
 				let i = Array.from(D.wrapper.querySelectorAll(C)).filter((e) => e.style.display !== "none"), a = Array(i.length);
 				for (let e = 0, t = i.length; e < t; e++) {
 					let t = i[e];
@@ -2867,11 +2874,11 @@ function z(a, s) {
 }
 //#endregion
 //#region js/index.ts
-var B = z, V = [];
-B.initialize = (e) => {
+var V = B, H = [];
+V.initialize = (e) => {
 	let t = document.querySelector(".reveal");
 	if (!(t instanceof HTMLElement)) throw Error("Unable to find presentation root (<div class=\"reveal\">).");
-	return Object.assign(B, new z(t, e)), V.map((e) => e(B)), B.initialize();
+	return Object.assign(V, new B(t, e)), H.map((e) => e(V)), V.initialize();
 }, [
 	"configure",
 	"on",
@@ -2880,9 +2887,9 @@ B.initialize = (e) => {
 	"removeEventListener",
 	"registerPlugin"
 ].forEach((e) => {
-	B[e] = (...t) => {
-		V.push((n) => n[e].call(null, ...t));
+	V[e] = (...t) => {
+		H.push((n) => n[e].call(null, ...t));
 	};
-}), B.isReady = () => !1, B.VERSION = Te;
+}), V.isReady = () => !1, V.VERSION = Te;
 //#endregion
-export { B as default };
+export { V as default };
