@@ -6,9 +6,9 @@
   </summary>
   <br>
 
-  ```
+  <pre><code>
   ^#
-  ```
+  </code></pre>
 </details>
 <br>
 
@@ -18,9 +18,9 @@
   </summary>
   <br>
 
-  ```
+  <pre><code>
   ^\s*#\s*[_A-Za-z]
-  ```
+  </code></pre>
 </details>
 <br>
 
@@ -30,9 +30,9 @@
   </summary>
   <br>
 
-  ```
+  <pre><code>
   \s$
-  ```
+  </code></pre>
 </details>
 <br>
 
@@ -42,9 +42,9 @@
   </summary>
   <br>
 
-  ```
+  <pre><code>
   [BHLP]arry
-  ```
+  </code></pre>
 </details>
 <br>
 
@@ -54,9 +54,9 @@
   </summary>
   <br>
 
-  ```
+  <pre><code>
   hello.*world
-  ```
+  </code></pre>
 </details>
 <br>
 
@@ -66,9 +66,9 @@
   </summary>
   <br>
 
-  ```
+  <pre><code>
   c[ae]l[ae]nd[ae]r
-  ```
+  </code></pre>
 </details>
 <br>
 
@@ -78,9 +78,9 @@
   </summary>
   <br>
 
-  ```
+  <pre><code>
   ([1-9][0-9]*|0)(,([1-9][0-9]*|0))*
-  ```
+  </code></pre>
 </details>
 <br>
 
@@ -90,8 +90,8 @@
   </summary>
   <br>
 
-  ```
+  <pre><code>
   "[^"]*\\n"
-  ```
+  </code></pre>
 </details>
 <br>
