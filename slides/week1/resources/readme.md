@@ -110,16 +110,17 @@
   </summary>
   <br>
 
-  1. `<`, `>` and `|` are apart of the shell’s syntax, 
+  1. <, > and | are apart of the shell’s syntax, 
 
-  2.  are part of the shell’s syntax so the shell will interpret them rather than passing them to `grep` → avoid by wrapping the regex expression with single or double quotes
+  2.  are part of the shell’s syntax so the shell will interpret them rather than passing them to grep → avoid by wrapping the regex expression with single or double quotes
 
-  3. `grep` by itself doesn’t implement `|` so will need to use `grep -E`
-  4. The supplied regex expression won’t match the HTML tags if they’re in upper case (e.g. `<P></P>`) so use `grep -Ei` to make it case-insensitive
+  3. grep by itself doesn’t implement | so will need to use <code>grep -E</code>
+  
+  4. The supplied regex expression won’t match the HTML tags if they’re in upper case (e.g. <code>&lt;P&gt;&lt;/P&gt;</code>) so use <code>grep -Ei</code> to make it case-insensitive
 
-  5. The supplied regular expression also won't match HTML tags containing spaces, e.g: `<p >` so account for the whitespaces i.e. `grep -Ei '<\s*(p|br)\s*>' /tmp/index.html`
+  5. The supplied regular expression also won't match HTML tags containing spaces, e.g: <code>&lt;p &gt;</code> so account for the whitespaces i.e. <code>grep -Ei &#39;&lt;\s*(p|br)\s*&gt;&#39; /tmp/index.html</code>
 
-  6. The HTML tag may contain attributes, e.g: `<p class="lead_para">` so change it to `grep -Ei '<\s*(p|br)[^>]*>' /tmp/index.html`
+  6. The HTML tag may contain attributes, e.g: <code>&lt;p class=&quot;lead_para&quot;&gt;</code> so change it to <code>grep -Ei &#39;&lt;\s*(p|br)[^&gt;]*&gt;&#39; /tmp/index.html</code>
 </details>
 <br>
 
