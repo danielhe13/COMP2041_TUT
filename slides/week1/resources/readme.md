@@ -128,19 +128,24 @@
   </summary>
   <br>
 
-  <pre><code>grep -E '129\.94\.172\.([1-9]|1[0-9]|2[0-5])' ips.txt</code></pre>
+  <pre><code>grep -E '^129\.94\.172\.([1-9]|1[0-9]|2[0-5])$' ips.txt</code></pre>
 </details>
 <br>
 
 <details>
   <summary>
-    Write a <code class="language-shell">grep -E</code> command which prints position real numbers at the start of the line in <code>nums.txt</code>
+    This regular expression <code>[0-9]*.[0-9]*</code> is intended to match floating point numbers such as '42.5'. Is it appropriate?
   </summary>
   <br>
-
-  <pre><code>grep -E '^(([0-9]|[1-9][0-9]+)\.?[0-9]*)' nums.txt</code></pre>
+    No.
+    The regular expression <code>[0-9]*.[0-9]*</code> matches strings which are not floating point numbers.
+    It will match zero or more digits, any character, followed by zero or more digits.
+    It also will match numbers such as 01.12. A Better expression would be
+  <pre><code>(0|[1-9][0-9]*)\.([0-9]*[1-9]|0)</code></pre>
 </details>
 <br>
+
+More Questions: https://cgi.cse.unsw.edu.au/~cs2041/current/tut/01/questions
 
 ### Credits
 Mitchell Wang, Angella Pham, Jayden Leung
