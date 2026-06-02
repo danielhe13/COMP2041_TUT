@@ -110,17 +110,15 @@
   </summary>
   <br>
 
-  1. <, > and | are apart of the shell’s syntax, 
+  <ol>
+    <li><code>&lt;</code>, <code>&gt;</code> and <code>|</code> are apart of the shell’s syntax.</li>
+    <li>Characters are part of the shell’s syntax so the shell will interpret them rather than passing them to grep &rarr; avoid by wrapping the regex expression with single or double quotes.</li>
+    <li>grep by itself doesn’t implement <code>|</code> so will need to use <code>grep -E</code>.</li>
+    <li>The supplied regex expression won’t match the HTML tags if they’re in upper case (e.g. <code>&lt;P&gt;&lt;/P&gt;</code>) so use <code>grep -Ei</code> to make it case-insensitive.</li>
+    <li>The supplied regular expression also won't match HTML tags containing spaces, e.g: <code>&lt;p &gt;</code> so account for the whitespaces i.e. <code>grep -Ei '&lt;\s*(p|br)\s*&gt;' /tmp/index.html</code>.</li>
+    <li>The HTML tag may contain attributes, e.g: <code>&lt;p class=&quot;lead_para&quot;&gt;</code> so change it to <code>grep -Ei '&lt;\s*(p|br)[^&gt;]*&gt;' /tmp/index.html</code>.</li>
+  </ol>
 
-  2.  are part of the shell’s syntax so the shell will interpret them rather than passing them to grep → avoid by wrapping the regex expression with single or double quotes
-
-  3. grep by itself doesn’t implement | so will need to use <code>grep -E</code>
-  
-  4. The supplied regex expression won’t match the HTML tags if they’re in upper case (e.g. <code>&lt;P&gt;&lt;/P&gt;</code>) so use <code>grep -Ei</code> to make it case-insensitive
-
-  5. The supplied regular expression also won't match HTML tags containing spaces, e.g: <code>&lt;p &gt;</code> so account for the whitespaces i.e. <code>grep -Ei &#39;&lt;\s*(p|br)\s*&gt;&#39; /tmp/index.html</code>
-
-  6. The HTML tag may contain attributes, e.g: <code>&lt;p class=&quot;lead_para&quot;&gt;</code> so change it to <code>grep -Ei &#39;&lt;\s*(p|br)[^&gt;]*&gt;&#39; /tmp/index.html</code>
 </details>
 <br>
 
