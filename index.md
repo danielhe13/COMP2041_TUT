@@ -7,5 +7,5 @@ Welcome to the tutorial hub! Here you will find the slides and extra resources f
 
 ### Week 1
 * [View Slides Here](slides/week1/index.html)
-* [View/Download Resources](slides/week1/resources/regex.md)
+* [View/Download Resources](slides/week1/resources/readme.md)
 

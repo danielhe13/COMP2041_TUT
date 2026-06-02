@@ -16,7 +16,8 @@
   </summary>
   <br>
 
-  <pre><code>^\s*#\s*[_A-Za-z]</code></pre>
+  Assuming only preprocessor starts with #
+  <pre><code>^[^#]|^$</code></pre>
 </details>
 <br>
 
@@ -77,5 +78,29 @@
   <br>
 
   <pre><code>"[^"]*\\n"</code></pre>
+</details>
+<br>
+
+---
+
+# Grep Questions
+
+<details>
+  <summary>
+    Why does this <code class="language-shell">grep -E hello</code> seem to be taking a long time to run?
+  </summary>
+  <br>
+
+  Because it is waiting for input from stdin.
+</details>
+<br>
+
+<details>
+  <summary>
+    Why won’t <code class="language-shell">grep -E int main program.c</code> work?
+  </summary>
+  <br>
+
+  <code class="language-shell">grep -E</code> will attempt to search files main and program.c for lines containing the string int, will need quotations around the rege
 </details>
 <br>
