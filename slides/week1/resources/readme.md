@@ -81,7 +81,6 @@
 </details>
 <br>
 
----
 
 # Grep Questions
 
@@ -104,3 +103,45 @@
   <code class="language-shell">grep -E</code> will attempt to search files main and program.c for lines containing the string int, will need quotations around the rege
 </details>
 <br>
+
+<details>
+  <summary>
+    Give five reasons why this attempt to search a file for HTML paragraph and break tags may fail <code class="language-shell">grep &lt;p&gt;|&lt;br&gt; index.html</code>
+  </summary>
+  <br>
+
+  1. `<`, `>` and `|` are apart of the shell’s syntax, 
+
+  2.  are part of the shell’s syntax so the shell will interpret them rather than passing them to `grep` → avoid by wrapping the regex expression with single or double quotes
+
+  3. `grep` by itself doesn’t implement `|` so will need to use `grep -E`
+  4. The supplied regex expression won’t match the HTML tags if they’re in upper case (e.g. `<P></P>`) so use `grep -Ei` to make it case-insensitive
+
+  5. The supplied regular expression also won't match HTML tags containing spaces, e.g: `<p >` so account for the whitespaces i.e. `grep -Ei '<\s*(p|br)\s*>' /tmp/index.html`
+
+  6. The HTML tag may contain attributes, e.g: `<p class="lead_para">` so change it to `grep -Ei '<\s*(p|br)[^>]*>' /tmp/index.html`
+</details>
+<br>
+
+<details>
+  <summary>
+    Write a <code class="language-shell">grep -E</code> command which will print any lines in a file <code>ips.txt</code> containing an IP addresses in the range <code>129.94.172.1</code> to <code>129.94.172.25</code>
+  </summary>
+  <br>
+
+  <pre><code>grep -E '129\.94\.172\.([1-9]|1[0-9]|2[0-5])' ips.txt</code></pre>
+</details>
+<br>
+
+<details>
+  <summary>
+    Write a <code class="language-shell">grep -E</code> command which prints position real numbers at the start of the line in <code>nums.txt</code>
+  </summary>
+  <br>
+
+  <pre><code>grep -E '^(([0-9]|[1-9][0-9]+)\.?[0-9]*)' nums.txt</code></pre>
+</details>
+<br>
+
+### Credits
+Mitchell Wang, Angella Pham, Jayden Leung
