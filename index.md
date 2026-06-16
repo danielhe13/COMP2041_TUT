@@ -11,8 +11,8 @@ Welcome to the tutorial hub! Here you will find the slides and extra resources f
 
 ### Week 2
 * [View Slides Here](https://kingsbo.github.io/TUT2041/slides/week2/index.html)
-* [View Questions](https://cgi.cse.unsw.edu.au/~cs2041/current/tut/02/questions)
+* [View Questions](https://cgi.cse.unsw.edu.au/~cs2041/current/tut/02/questions){:target="_blank"}
 
 ### Week 3
 * [View Slides Here](https://kingsbo.github.io/TUT2041/slides/week3/index.html)
-* [View Questions](https://cgi.cse.unsw.edu.au/~cs2041/current/tut/03/questions)
+* [View Questions](https://cgi.cse.unsw.edu.au/~cs2041/current/tut/03/questions){:target="_blank"}
