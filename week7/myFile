@@ -1,0 +1,6 @@
+This file contains a tabbed list:
+	- point 1
+	- point 2
+	- point 3
+And this line has trailing spaces   
+which would otherwise be invisible.
