@@ -136,7 +136,6 @@ seq 1 5 | sed '4q;/2/d'
 - print the first 4 lines then quit
 - Then delete any line that match the regex `2`
 - both of the commands will run on each line of input
-- Intersection of both (must satisfy both)
 - Run in order
 ----
 
