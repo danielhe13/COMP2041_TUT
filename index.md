@@ -32,3 +32,7 @@ Welcome to the tutorial hub! Here you will find the slides and extra resources f
 ### Week 8
 * [View Slides Here](https://kingsbo.github.io/TUT2041/slides/week8/index.html)
 * [View Questions](https://cgi.cse.unsw.edu.au/~cs2041/current/tut/08/questions){:target="_blank"}
+
+### Week 9
+* [View Slides Here](https://notch-waterfall-d74.notion.site/372ff385668580668a0ce7e51ed6b27c?v=b63ff385668583529ffd08330dac9e32&p=3aaff38566858052ae60dfe9dc464626&pm=c)
+* [View Questions](https://cgi.cse.unsw.edu.au/~cs2041/current/tut/09/questions){:target="_blank"}
