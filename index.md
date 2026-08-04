@@ -38,4 +38,5 @@ Welcome to the tutorial hub! Here you will find the slides and extra resources f
 * [View Questions](https://cgi.cse.unsw.edu.au/~cs2041/current/tut/09/questions){:target="_blank"}
 
 ### Week 10
+* [View Slides Here](https://notch-waterfall-d74.notion.site/372ff385668580668a0ce7e51ed6b27c?v=b63ff385668583529ffd08330dac9e32&p=3b1ff385668580f0a3b9c4d60d38371f&pm=c)
 * [View Questions](https://cgi.cse.unsw.edu.au/~cs2041/current/tut/10/questions){:target="_blank"}
