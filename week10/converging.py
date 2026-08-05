@@ -10,6 +10,9 @@ for line in sys.stdin:
     for num in line.split(" "):
         list_nums.append(int(num))
 
+# alternate parseing input in one line
+# list_nums = [int(item) for line in [line.split(" ") for line in [line[:-1] if line[-1] == '\n' else line for line in sys.stdin.readlines()]] for item in line]
+
 # Keep track of the difference of each pair
 prev = -1
 for i in range(len(list_nums)-1):
